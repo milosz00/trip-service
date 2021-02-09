@@ -1,0 +1,44 @@
+.content{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 80px;
+}
+
+.info{
+    margin-bottom: 20px;
+}
+
+.card-shop{
+    margin-right: auto;
+    margin-left: auto;
+    background-color: white;
+}
+
+.trip-info{
+    list-style: none;
+    float: left;
+    margin-top: 10px;
+}
+
+.trip-info > li{
+    margin-bottom: 3px;
+    border: 1px solid black;
+    padding: 1px;
+}
+
+img{
+    float: left;
+    padding: 5px;
+}
+
+.group-btn{
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.btn{
+    margin-bottom: 8px;
+    border-radius: 5px;
+}

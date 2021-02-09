@@ -1,0 +1,19 @@
+
+
+<div id="formContent">
+    <!-- Login Form -->
+    <div>
+        <input type="email" id="email" class="fadeIn second" name="email" placeholder="email" [(ngModel)]="email">
+        <input type="password" id="password" class="fadeIn third" name="password" placeholder="password" [(ngModel)]="password">
+        <input type="submit" class="fadeIn fourth" value="Log In" (click)="onLogIn()">
+        <button class="btn btn-success" style="display: block;margin-left: auto;margin-right: auto;"><a routerLink="/register" style="color:white;">Register</a></button>
+
+        <div *ngIf="alertVisible" class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{errorInfo}}
+            <button type="button" class="close" (click)="hideAlert()" aria-label="close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+    </div>
+</div>

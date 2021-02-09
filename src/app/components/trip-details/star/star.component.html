@@ -1,0 +1,5 @@
+<svg    (click)="starClicked()" class="star-rating-blank" (mouseover)="onEnter()" (mouseleave)="onLeave()"
+        [ngClass]="{'star-rating-filled': rating >= starId, 'star-rating-blank': rating < starId}"
+        height="28px" width="26px" >
+    <polygon stroke-width="0" points="9.9, 1.1, 3.3, 21.78, 19.8, 8.58, 0, 8.58, 16.5, 21.78" />
+</svg>

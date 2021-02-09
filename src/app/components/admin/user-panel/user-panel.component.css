@@ -1,0 +1,30 @@
+.content{
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.user{
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    background-color: white;
+    box-shadow: 0px 0px 15px 1px rgba(135,128,135,1);
+    font-size: 20px;
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.info{
+    list-style-type: none;
+}
+
+.info > li{
+    margin-top: 10px;
+}
+.btn{
+    margin-bottom: 5px;
+    margin-right: 10px;
+}

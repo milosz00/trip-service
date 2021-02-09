@@ -1,0 +1,15 @@
+<div class="form-search form-inline justify-content-center">
+    <input type="text" class="form-control col-sm-4 col-md-3" placeholder="Search By Trip Name" [(ngModel)]="inputTripName">
+    <input type="text" class="form-control col-sm-4 col-md-3" placeholder="Search By Contry Name" [(ngModel)]="inputTripCountry">
+    <input type="number" class="form-control col-sm-4 col-md-3" placeholder="Search By Price(max)" min="0" max="10000" step="50" [(ngModel)]="inputTripPrice">
+    <input type="number" class="form-control col-sm-4 col-md-3" placeholder="Search By Number of Stars" min="0" max="5" [(ngModel)]="inputTripStar">
+    <div class="form-group col-sm-4 col-md-3">
+        <label for="startDate" style="color: white;">Start Date(min): </label>
+        <input type="date" class="form-control" [(ngModel)]="inputTripStartDate" id="startDate">
+    </div>
+    <div class="form-group col-sm-4 col-md-3">
+        <label for="endDate" style="color: white;">End Date(max): </label>
+        <input type="date" class="form-control" [(ngModel)]="inputTripEndDate" id="endDate">
+    </div>
+
+</div>

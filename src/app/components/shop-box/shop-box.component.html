@@ -1,0 +1,23 @@
+<div class="content">
+<div *ngFor="let bookTrip of bookTrips" class="col-12 col-sm-8 col-md-6 justify-content-center card-shop">
+    <div class="info">
+        <img src="{{bookTrip.photo}}" class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-4" width="210" height="170">
+        <ul class="trip-info col-12 col-sm-12 col-md-12 col-lg-12 col-xl-5">
+            <li class="bg-info">Trip Name: {{bookTrip.name}}</li>
+            <li class="bg-info">Country Name: {{bookTrip.country}}</li>
+            <li class="bg-success">Number of booked trips: {{bookTrip.bookPlaces}}</li>
+            <li class="bg-info">Unit Price: {{bookTrip.price | currency:'USD'}}</li>
+            <li class="bg-danger">Sum: {{bookTrip.bookPlaces}} x {{bookTrip.price | currency:'USD'}} = {{bookTrip.bookPlaces*bookTrip.price | currency:'USD'}}</li>
+        </ul>
+    </div>
+    
+    <div class="group-btn col-12 col-sm-12 col-md-12 col-lg-12 col-xl-3" style="float: right;text-align: center;">
+        <button class="btn btn-primary" (click)="book(bookTrip)" [disabled]="bookTrip.disableButtonBook" [class.btn-warning]="bookTrip.smallAmount">Book one more</button>
+        <small *ngIf="bookTrip.smallAmount" class="text-warning" style="margin-top: -3px;">Hurry up! Last places! </small>
+        <button class="btn btn-danger" (click)="cancel(bookTrip)" [disabled]="bookTrip.disableButtonCancel">Cancel Book</button>
+    </div>
+    <div style="clear: both;"></div>
+</div>
+
+
+

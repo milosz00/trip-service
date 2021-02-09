@@ -1,0 +1,39 @@
+<div class="box">
+  <div class="form">
+    <h2>Add Trip</h2>
+    <div class="form-row justify-content-center">
+        
+      <div class="col-10">
+        <input placeholder="Trip name" class="form-control" [(ngModel)]="nameTrip">
+      </div>
+        
+      <div class="col-10">
+        <input placeholder="Country name" class="form-control" [(ngModel)]="country">
+      </div>
+      
+      <div class="col-10">
+        <input type="date" class="form-control" [(ngModel)]="start">
+      </div>
+      
+      <div class="col-10">
+        <input type="date" class="form-control" [(ngModel)]="finish">
+      </div>
+      
+      <div class="col-10">
+        <input placeholder = "Unit price" type="number" class="form-control" [(ngModel)]="price">
+      </div>
+      
+      <div class="col-10">
+        <input placeholder="Max places" type="number" class="form-control" [(ngModel)]="places">
+      </div>
+      
+      <div class="col-10">
+        <textarea class="form-control" placeholder="Short description" [(ngModel)]="description" rows="3"></textarea> 
+      </div>
+      
+    </div>
+    <button class="btn btn-primary btn-block btnForms" [disabled]="validate()" (click)="createTrip()">Add Trip</button>
+  </div>
+</div>
+
+<div class="info text-success">{{info}}</div>

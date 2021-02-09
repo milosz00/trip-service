@@ -1,0 +1,7 @@
+*{
+    box-sizing: border-box;
+}
+
+.form-control{
+    margin: 5px;
+}

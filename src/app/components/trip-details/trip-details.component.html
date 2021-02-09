@@ -1,0 +1,36 @@
+<div class="col-8 justify-content-center content" *ngIf="tripDetails">
+    <div class="col-12 bg-light box" style="text-align: center;">
+        <div class="col-xl-4">
+            <img src={{tripDetails.photo}}>
+            <div class="starsRating">
+                <ng-container *ngFor="let star of stars">
+                    <app-star [starId]="star" [rating]="tripDetails.hoverStarState" (enter)="enter(tripDetails,$event)" 
+                                (leave)="leave(tripDetails)" (bigClick)="updateRating($event,tripDetails)"></app-star>
+                </ng-container>
+            </div>
+            <span style="display: block;margin-left: auto;margin-right: auto;margin-bottom: 5px;">
+                Ocena: {{tripDetails.mark.toFixed(2)}} <small>Liczba głosów: {{tripDetails.countVotes}}</small>
+            </span>
+        </div>
+        <div class="info col-xl-5">
+            <ul class="trip-description list-group list-group-flush">
+                <li class="list-group-item list-group-item-primary">{{tripDetails.name | uppercase}}</li>
+                <li class="list-group-item list-group-item-primary">{{tripDetails.country | uppercase}}</li>
+                <li class="list-group-item list-group-item-success">Start Date: {{tripDetails.startDate}}</li>
+                <li class="list-group-item list-group-item-danger">End Date: {{tripDetails.endDate}}</li>
+                <li class="list-group-item list-group-item-info">Unit Price: {{tripDetails.price | currency:'USD'}}</li>
+              </ul>
+        </div>
+        <div class="button-group col-xl-3" style="text-align: center;">
+            <span style="display: block;margin-top: 20px;font-size: 20px;" 
+                  [ngClass] = "{'text-success': !tripDetails.disableButtonBook,'text-danger': tripDetails.disableButtonBook,'text-warning':tripDetails.smallAmount}">
+                  Free places: {{tripDetails.freePlaces}} 
+            </span>
+            <button class="btn btn-primary btn-block" (click)="book(tripDetails)" [disabled]="tripDetails.disableButtonBook || currentUserRole === 'reader'" 
+                    [class.btn-warning]="tripDetails.smallAmount">Book
+            </button>
+            <small *ngIf="tripDetails.smallAmount" class="text-warning" style="margin-top: -3px;">Hurry up! Last places! </small>
+            <button class="btn btn-primary btn-block" style="margin-top: 5px;" (click)="cancel(tripDetails)" [disabled]="tripDetails.disableButtonCancel || currentUserRole === 'reader'" >Cancel</button>
+          </div>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+
+<div class="filters">
+  <app-filter-trips (tripString)='fillStringInput($event)' (tripNumbers)="fillNumberInput($event)"></app-filter-trips>
+</div>
+
+
+  <div class="container-fluid wrapper">
+    <div class="content justify-content-center">
+
+        <ng-container *ngFor="let trip of trips | filterName:searchTripName | FilterCountry: searchTripCountry | filterPrice: searchTripPrice
+        | filterDate: searchTripStartDate:searchTripEndDate | filterStars: searchTripStar;">
+          <div class="box col-xl-2 col-lg-4 col-md-4 col-8"
+          [class.boxGreen]="trip.price === maxMinPrice[0]"
+          [class.boxRed]="trip.price === maxMinPrice[1]"
+          *ngIf="trip.canRead !== currentUserRole">
+            <img src={{trip.photo}} data-toggle="tooltip" data-placement="top" title="Click to see more photos">
+            <small class="trip-book" [ngStyle]="{'background-color':trip.bookPlaces >=10 ? 'lightgreen' : 'red'}">Number of trips booked: {{trip.bookPlaces}} </small>
+            <a [routerLink]="['/trip' , trip.key ]" style="display: block;">More>></a>
+            <ul class="trip-description list-group list-group-flush">
+              <li class="list-group-item list-group-item-primary">{{trip.name | uppercase}}</li>
+              <li class="list-group-item list-group-item-primary">{{trip.country | uppercase}}</li>
+              <li class="list-group-item list-group-item-info">Max Places: {{trip.maxPlaces}}</li>
+              <li class="list-group-item list-group-item-secondary" ><span style="border-bottom:1px solid #cccccc;">Description:</span> <br>{{trip.description}}</li>
+              <li>Free places: {{trip.freePlaces}}</li>
+              <small [ngClass] = "{'text-success': !trip.disableButtonBook,'text-danger': trip.disableButtonBook,'text-warning':trip.smallAmount}" >{{trip.info}}</small>
+            </ul>
+            <div class="button-group">
+              <button class="btn btn-primary btn-block" (click)="book(trip)" [disabled]="trip.disableButtonBook || currentUserRole==='reader'" [class.btn-warning]="trip.smallAmount">Book</button>
+              <button class="btn btn-primary btn-block" (click)="cancel(trip)" [disabled]="trip.disableButtonCancel || currentUserRole==='reader'" >Cancel</button>
+              <button class="btn btn-danger btn-block" (click)="deleteTrip(trip)" *ngIf="currentUserRole === 'admin'">Delete Trip</button>
+            </div>
+          </div>
+        </ng-container>
+
+    </div>
+
+  </div>

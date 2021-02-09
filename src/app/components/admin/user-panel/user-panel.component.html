@@ -1,0 +1,20 @@
+<div class="content">
+    <ng-container *ngFor="let user of users">
+        <div class="user col-12 col-md-8 justify-content-center" *ngIf="user.email !== email">
+            <ul class="info col-12 col-md-5">
+                <li>User Email: {{user.email}}</li>
+                <li>User Role: {{user.role}}</li>
+            </ul>
+            <div class="button-group col-12 col-md-5">
+                <div class="buttons-first col-12">
+                    <button class="btn btn-warning col-12 col-md-5" (click)="changeRole(user.key,1)">Admin</button>
+                    <button class="btn btn-primary col-12 col-md-5" (click)="changeRole(user.key,2)" >Worker</button>
+                </div>
+                <div div class="buttons-second col-12">
+                    <button class="btn btn-success col-12 col-md-5" (click)="changeRole(user.key,3)">VIP</button>
+                    <button class="btn btn-danger col-12 col-md-5" (click)="changeRole(user.key,4)">Reader</button>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</div>

@@ -1,0 +1,43 @@
+<div class="content justify-content-center" *ngIf="tripDetails">
+    <div class="box col-12 col-md-5">
+        <ul class="info list-group list-group-flush">
+            <li class="list-group-item list-group-item-primary">Trip Name: {{tripDetails.name | uppercase}}</li>
+            <li class="list-group-item list-group-item-primary">Country Name: {{tripDetails.country | uppercase}}</li>
+            <li class="list-group-item list-group-item-success">Start Date: {{tripDetails.startDate}}</li>
+            <li class="list-group-item list-group-item-danger">End Date: {{tripDetails.endDate}}</li>
+            <li class="list-group-item list-group-item-info">Unit Price: {{tripDetails.price | currency:'USD'}}</li>
+            <li class="list-group-item list-group-item-primary">Max Places: {{tripDetails.maxPlaces}}</li>
+            <li class="list-group-item list-group-item-info">Description: {{tripDetails.description}}</li>
+        </ul>
+    </div>
+
+    <div class="form col-12 col-md-5 justify-content-center">
+        <h2>Change Trip Details</h2>
+        <div class="col-12 form-group" style="margin-top: 45px;">
+            <label for="start" class="col-12">Start Date:</label>
+            <input type="date" id="start" class="form-control col-8" [(ngModel)]="start">
+            <button class="btn btn-primary col-3" [disabled] = "start === ''" (click)="change(1)">Change</button>
+        </div>
+          
+        <div class="col-12 form-group">
+            <label for="finish" class="col-12">End Date: </label>
+            <input type="date" id="finish" class="form-control col-8" [(ngModel)]="finish">
+            <button class="btn btn-primary col-3" [disabled]="finish === '' " (click)="change(2)">Change</button>
+        </div>
+        
+        <div class="col-12 form-group">
+            <input placeholder = "Unit price" type="number" class="form-control col-8" [(ngModel)]="price">
+            <button class="btn btn-primary col-3" [disabled]="price === null" (click)="change(3)">Change</button>
+        </div>
+        
+        <div class="col-12 form-group">
+            <input placeholder="Max places" type="number" class="form-control col-8" [(ngModel)]="places">
+            <button class="btn btn-primary col-3" [disabled]="places === null" (click)="change(4)">Change</button>
+        </div>
+        
+        <div class="col-12 form-group">
+            <textarea class="form-control col-8" placeholder="Short description" [(ngModel)]="description" rows="3"></textarea>
+            <button class="btn btn-primary col-3" [disabled]="description === '' " (click)="change(5)">Change</button> 
+        </div>
+    </div>
+</div>

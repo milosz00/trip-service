@@ -1,0 +1,26 @@
+<div class="persistanceBox" *ngIf="currentUserRole === 'admin'">
+    <h2>Change persistance mode</h2>
+    <button class="btn btn-danger btn-block" (click)="setLocal()">LOCAL</button>
+    <button class="btn btn-warning btn-block" (click)="setSession()">SESSION</button>
+    <button class="btn btn-success btn-block" (click)="setNone()">NONE</button>
+</div>
+
+<button class="btn btn-primary userBtn" *ngIf="currentUserRole === 'admin'"><a class="nav-link userLink" routerLink="/userPanel">User Panel >></a></button>
+
+<div class="content justify-content-center">
+    <div *ngFor="let trip of trips" class="col-12 col-sm-8 col-md-5 justify-content-center card">
+        <div class="info">
+            <img src="{{trip.photo}}" class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-4" width="210" height="170">
+            <ul class="trip-info col-12 col-sm-12 col-md-12 col-lg-12 col-xl-5">
+                <li class="bg-info">Trip Name: {{trip.name}}</li>
+                <li class="bg-info">Country Name: {{trip.country}}</li>
+                <li class="bg-info">Unit Price: {{trip.price | currency:'USD'}}</li>
+                <li class="bg-info">Max Places: {{trip.maxPlaces}}</li>
+                <li style="border: none;display: block;float: left;" (click)="delete(trip.key)" *ngIf = "currentUserRole === 'admin'">
+                    <button class="btn btn-danger" >Delete Trip</button>
+                </li>
+                <li style="border: none;display: block;float: left;font-size: 20px;margin-left: 20px;"><a [routerLink]="['/updateTrip' , trip.key ]">Update >></a></li>
+            </ul>
+        </div>
+        <div style="clear: both;"></div>
+</div>

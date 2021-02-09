@@ -1,0 +1,78 @@
+.persistanceBox{
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+h2{
+    margin: 0;
+    margin-bottom: 30px;
+}
+
+.btn{
+    display: block;
+}
+
+.content{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 80px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.info{
+    margin-bottom: 20px;
+}
+
+.card{
+    margin-right: 5px;
+    margin-top: 5px;
+    background-color: white;
+}
+
+.trip-info{
+    list-style: none;
+    float: left;
+    margin-top: 10px;
+}
+
+.trip-info > li{
+    margin-bottom: 3px;
+    border: 1px solid black;
+    padding: 1px;
+}
+
+img{
+    float: left;
+    padding: 5px;
+}
+
+.group-btn{
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+}
+
+.btn{
+    margin-bottom: 8px;
+    border-radius: 5px;
+}
+
+.userBtn{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    width: 300px;
+}
+
+.userLink{
+    color: white;
+}

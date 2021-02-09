@@ -1,0 +1,50 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-danger" *ngIf="logIn">
+  <a class="navbar-brand" routerLink="/home" routerLinkActive="active">Home</a>
+
+  <div class="collapse navbar-collapse" id="navbar">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/tripList">Trip List</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active" *ngIf="isAdmin || isWorker">
+        <a class="nav-link" routerLink="/addTrip">Add Trip</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active" *ngIf="logIn">
+        <a class="nav-link" routerLink="/shopBox">Shop Box</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active" *ngIf="isAdmin || isWorker">
+        <a class="nav-link" routerLink="/admin">Admin/Worker Panel</a>
+      </li>
+      <li class="nav-item" *ngIf="logIn">
+        <button class="btn" style="font-size: 20px;" (click)="onLogOut()"><a class="nav-link">Log Out</a></button>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-danger" *ngIf="!logIn">
+  <a class="navbar-brand" routerLink="/home" routerLinkActive="active">Home</a>
+
+  <div class="collapse navbar-collapse" id="navbar">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/tripList">Trip List</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active" *ngIf = "!logIn">
+        <a class="nav-link" routerLink="/login">Log In</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active" *ngIf = "!logIn">
+        <a class="nav-link" routerLink="/register">Register</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+
+
+<span class="userRole">Current User Role: {{currentUserRole | uppercase}}</span>
+<div style="clear: both;"></div>
+
+<router-outlet></router-outlet>
+
